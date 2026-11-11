@@ -88,14 +88,21 @@
         .result-box { text-align: center; background: var(--gold-light); border: 2px solid var(--gold-main); padding: 20px; border-radius: 8px; margin-top: 20px; display: none; }
         .result-box h3 { color: var(--gold-main); font-size: 22px; margin-bottom: 8px; }
 
-        /* Cheat Sheet Specific Styles */
-        .timer-bar { display: flex; justify-content: space-between; align-items: center; background: var(--navy-dark); color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 6px solid var(--gold-main); }
-        .timer-display { font-size: 22px; font-weight: 800; color: var(--gold-light); font-variant-numeric: tabular-nums; }
-        .timer-btn { background: var(--gold-main); color: white; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 13px; margin-left: 8px; }
-        .script-block { border-left: 4px solid var(--navy-main); background: #f8fafc; padding: 14px 18px; margin-bottom: 14px; border-radius: 0 6px 6px 0; }
-        .script-time { font-size: 12px; font-weight: 800; color: var(--gold-main); text-transform: uppercase; letter-spacing: 0.5px; }
-        .script-cue { font-size: 13px; font-weight: 700; color: var(--navy-main); margin: 4px 0; }
-        .script-say { font-size: 14px; color: #0f172a; font-style: italic; }
+        /* Upgraded Teleprompter Cheat Sheet Styles */
+        .timer-bar { position: sticky; top: 10px; z-index: 100; display: flex; justify-content: space-between; align-items: center; background: var(--navy-dark); color: white; padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 6px solid var(--gold-main); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3); }
+        .timer-display { font-size: 24px; font-weight: 800; color: var(--gold-light); font-variant-numeric: tabular-nums; }
+        .timer-btn { background: var(--gold-main); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 13px; margin-left: 8px; }
+        
+        .step-card { border: 2px solid var(--border-color); border-left: 6px solid var(--navy-main); background: #ffffff; padding: 18px 20px; margin-bottom: 16px; border-radius: 8px; cursor: pointer; transition: 0.2s; position: relative; }
+        .step-card:hover { border-color: var(--navy-main); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+        .step-card.done { opacity: 0.45; border-left-color: var(--correct-green); background: #f8fafc; }
+        .step-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .step-badge { background: var(--navy-main); color: white; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+        .step-time { font-size: 12px; font-weight: 800; color: var(--gold-main); }
+        .step-action { background: var(--gold-light); color: #78350f; font-size: 13px; font-weight: 700; padding: 6px 10px; border-radius: 4px; margin-bottom: 10px; display: inline-block; }
+        .step-speech { font-size: 15px; line-height: 1.65; color: #0f172a; }
+        .step-speech strong { color: var(--navy-main); background: #eff6ff; padding: 0 4px; border-radius: 3px; }
+        .step-transition { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border-color); font-size: 13px; font-weight: 700; color: var(--correct-green); }
     </style>
 </head>
 <body>
@@ -393,12 +400,12 @@
             </div>
         </div>
 
-        <!-- SECRET PRESENTER CHEAT SHEET TAB -->
+        <!-- SECRET PRESENTER TELEPROMPTER TAB -->
         <div id="cheatsheet" class="tab-content">
             <div class="timer-bar">
                 <div>
                     <strong>⏱️ 5-Minute Pacing Timer</strong>
-                    <p style="font-size: 12px; color: #cbd5e1;">Target: 4:30 – 5:30 total</p>
+                    <p style="font-size: 12px; color: #cbd5e1;">Click any card below as you finish it to check it off!</p>
                 </div>
                 <div>
                     <span class="timer-display" id="timer-display">05:00</span>
@@ -407,40 +414,99 @@
                 </div>
             </div>
 
-            <div class="card">
-                <h2>🤫 Presenter Live Script & Pacing Cues</h2>
-                
-                <div class="script-block">
-                    <div class="script-time">0:00 – 0:30 | Intro & Persona Hook</div>
-                    <div class="script-cue">👉 Tell group: Stay on the "Home / Overview" tab.</div>
-                    <div class="script-say">"I started with Thurgood Marshall at the NAACP Legal Defense Fund back in 1940 at age 18. Now that I'm 103 and retired, I've put together this digital archive for you to follow along on your own screens as we look at how the Bill of Rights shaped civil rights."</div>
+            <!-- STEP 1: INTRO -->
+            <div class="step-card" onclick="this.classList.toggle('done')">
+                <div class="step-header">
+                    <span class="step-badge">Step 1: The 103-Year-Old Lawyer Hook</span>
+                    <span class="step-time">0:00 – 0:25</span>
                 </div>
+                <div class="step-action">📱 Tell Group: "Stay on the Home tab on your phones."</div>
+                <p class="step-speech">
+                    "What's up everyone—I'm <strong>103 years old</strong> and I just retired. Back in <strong>1940</strong>, I graduated law school at 18, and <strong>Thurgood Marshall</strong> hired me at the NAACP Legal Defense Fund. We knew back then that youth attention spans would eventually be cooked, so instead of dusty notebooks, I put my 80-year civil rights archive onto this website on your phones."
+                </p>
+                <div class="step-transition">🔗 Transition: "Let's start right here on the Home tab with my main focus: the 1st Amendment."</div>
+            </div>
 
-                <div class="script-block">
-                    <div class="script-time">0:30 – 2:00 | Focus Amendment: 1st Amendment (1.5 Mins)</div>
-                    <div class="script-cue">👉 Tell group: Look at Figure 1 & Table on Home tab, then click "Document Vault" -> "1st".</div>
-                    <div class="script-say">"Look at Figure 1 on the Home tab. In West Virginia v. Barnette (1943), the school board argued forcing students to salute the flag built wartime unity. The Barnette family argued forced salutes violated their religious beliefs and forced speech against their conscience. The Supreme Court used the 1st Amendment shield in the middle to block forced patriotism. In the table below that, you also see Boy Scouts v. Dale (2000), where the Boy Scouts argued private groups have a right of expressive association to set membership rules, while James Dale argued state anti-discrimination laws should protect him; the Court sided with the group's expressive association. If you click into the Document Vault under 1st Amendment, look at Figure 2: we also see Hazelwood v. Kuhlmeier (1988), allowing schools to censor school newspapers for educational reasons, and Brandenburg v. Ohio (1969), protecting extreme speech unless it directly incites imminent lawless action."</div>
+            <!-- STEP 2: 1ST AMENDMENT PART 1 -->
+            <div class="step-card" onclick="this.classList.toggle('done')">
+                <div class="step-header">
+                    <span class="step-badge">Step 2: Focus Amendment — Barnette & Dale</span>
+                    <span class="step-time">0:25 – 1:25</span>
                 </div>
+                <div class="step-action">📱 Tell Group: "Scroll down to Figure 1 and the table on the Home tab."</div>
+                <p class="step-speech">
+                    "Look at <strong>Figure 1</strong>. Right after I started in the 1940s, we had <strong>West Virginia v. Barnette (1943)</strong>. During WWII, the school board—the petitioner—argued forcing kids to salute the flag built national unity and wartime patriotism. Being a young civil rights lawyer, I watched the Barnette family—the respondent—argue that forced salutes broke their religious beliefs against idolatry and forced them to speak against their conscience. Look at the <strong>blue shield in Figure 1</strong>: the Supreme Court ruled 6-3 that the government cannot force patriotism.<br><br>
+                    Scroll to the table right below that for my second deep-dive case: <strong>Boy Scouts v. Dale (2000)</strong>. The Boy Scouts argued that as a private group, they have a 1st Amendment right of expressive association to set their own membership rules. James Dale argued state anti-discrimination laws should stop them from firing him for his sexual orientation. The Court reasoned that forcing a private group to keep a leader whose message clashes with theirs violates the group's expressive association."
+                </p>
+                <div class="step-transition">🔗 Transition: "Tap the 'Document Vault' tab at the top so we can see where 1st Amendment speech hits its limits."</div>
+            </div>
 
-                <div class="script-block">
-                    <div class="script-time">2:00 – 4:30 | Amendments 2–8 Rapid Run (20-25 Secs Each)</div>
-                    <div class="script-cue">👉 Tell group: Click through tabs 2nd to 8th inside the Document Vault as I call them out.</div>
-                    <div class="script-say">
-                        • <strong>2nd:</strong> "Click 2nd. NYSRPA v. Bruen (2022) ruled the 2nd Amendment protects carrying a handgun outside the home for self-defense. Earlier cases like Cruikshank (1876) only limited federal power, and Presser (1886) let states ban private militias."<br><br>
-                        • <strong>3rd:</strong> "Click 3rd. Mitchell v. Harmony (1852) ruled military commanders cannot seize civilian property without immediate emergency necessity. Later, Laird v. Tatum (1972) limited military surveillance, and US v. Russell (1871) required owner compensation."<br><br>
-                        • <strong>4th:</strong> "Click 4th and look at Figure 3. In Kyllo v. US (2001), police used a thermal scanner from a public street to detect heat lamps inside a house. As Figure 3 shows, scanning through a private home's walls crosses the warrant wall. Also note Chimel (1969) limiting arrest searches to immediate reach, and Arizona v. Gant (2009) restricting vehicle searches."<br><br>
-                        • <strong>5th:</strong> "Click 5th. Schmerber v. California (1966) ruled mandatory DUI blood draws don't violate self-incrimination because the 5th Amendment protects spoken or written testimony, not physical samples—unlike Counselman (1892) on grand juries and Hubbell (2000) on forced documents."<br><br>
-                        • <strong>6th:</strong> "Click 6th. Batson v. Kentucky (1986) banned prosecutors from striking jurors based solely on race. Taylor v. Louisiana (1975) banned excluding women from jury pools, and Pointer v. Texas (1965) guaranteed the right to confront witnesses."<br><br>
-                        • <strong>7th:</strong> "Click 7th. Dimick v. Schiedt (1935) ruled federal judges cannot arbitrarily increase civil jury payout awards. Redman (1935) balanced judge and jury roles, and Colgrove (1973) upheld 6-person civil juries."<br><br>
-                        • <strong>8th:</strong> "Click 8th. Atkins v. Virginia (2002) banned executing individuals with severe intellectual disabilities as cruel and unusual. Miller v. Alabama (2012) banned mandatory life without parole for juveniles, and Estelle v. Gamble (1976) banned ignoring prisoner medical needs."
-                    </div>
+            <!-- STEP 3: 1ST AMENDMENT PART 2 -->
+            <div class="step-card" onclick="this.classList.toggle('done')">
+                <div class="step-header">
+                    <span class="step-badge">Step 3: Focus Amendment — Hazelwood & Brandenburg</span>
+                    <span class="step-time">1:25 – 2:00</span>
                 </div>
+                <div class="step-action">📱 Tell Group: "Look at Figure 2 inside the 1st Amendment tab."</div>
+                <p class="step-speech">
+                    "Look at the three boxes in <strong>Figure 2</strong>. While <em>Barnette</em> protected student silence in the blue box, the yellow box shows <strong>Hazelwood v. Kuhlmeier (1988)</strong>, where the Court ruled school principals CAN censor school-sponsored student newspapers for legitimate educational reasons. And in the red box, <strong>Brandenburg v. Ohio (1969)</strong> set the hard limit for adults: even extreme political speech is protected UNLESS it directly incites <strong>imminent lawless action</strong>."
+                </p>
+                <div class="step-transition">🔗 Transition: "Now that we know how speech works, let's do a rapid tour of Amendments 2 through 8. Tap '2nd'!"</div>
+            </div>
 
-                <div class="script-block">
-                    <div class="script-time">4:30 – 5:00 | Wrap-Up & Live Quiz</div>
-                    <div class="script-cue">👉 Tell group: Tap "Interactive Audience Quiz" on your devices and try the 4 questions!</div>
-                    <div class="script-say">"To wrap up, click the Interactive Audience Quiz tab on your screen, pick your answers for the 4 cases we just covered, and hit submit!"</div>
+            <!-- STEP 4: 2ND & 3RD AMENDMENTS -->
+            <div class="step-card" onclick="this.classList.toggle('done')">
+                <div class="step-header">
+                    <span class="step-badge">Step 4: 2nd & 3rd Amendments (Self-Defense & Property)</span>
+                    <span class="step-time">2:00 – 2:50</span>
                 </div>
+                <div class="step-action">📱 Tell Group: "Tap '2nd', and then '3rd' when I switch."</div>
+                <p class="step-speech">
+                    "On the <strong>2nd Amendment</strong>: Back in Reconstruction, <strong>US v. Cruikshank (1876)</strong> said the 2nd Amendment only limited the federal government, which left Black citizens disarmable by states, and <strong>Presser v. Illinois (1886)</strong> let states ban private militias. Fast forward to modern times: <strong>NYSRPA v. Bruen (2022)</strong> ruled the 2nd Amendment protects an individual's right to carry a handgun <strong>outside the home</strong> for self-defense.<br><br>
+                    Tap <strong>3rd Amendment</strong>: Moving from guns to military power inside your home, <strong>Mitchell v. Harmony (1852)</strong> ruled military commanders cannot seize civilian property without an immediate emergency. Later, <strong>US v. Russell (1871)</strong> required the government to pay owners when property is used, and <strong>Laird v. Tatum (1972)</strong> used 3rd Amendment ideas to limit military spying on civilians."
+                </p>
+                <div class="step-transition">🔗 Transition: "Speaking of government spying on your house, tap '4th' and look at Figure 3!"</div>
+            </div>
+
+            <!-- STEP 5: 4TH & 5TH AMENDMENTS -->
+            <div class="step-card" onclick="this.classList.toggle('done')">
+                <div class="step-header">
+                    <span class="step-badge">Step 5: 4th & 5th Amendments (Policing & Evidence)</span>
+                    <span class="step-time">2:50 – 3:40</span>
+                </div>
+                <div class="step-action">📱 Tell Group: "Look at Figure 3 on '4th', then tap '5th'."</div>
+                <p class="step-speech">
+                    "Look at <strong>Figure 3</strong> under the <strong>4th Amendment</strong>. In <strong>Kyllo v. US (2001)</strong>, police sat on a public street and used a thermal heat scanner to see heat lamps inside a house. As the diagram shows, shooting high-tech scanners through walls crosses the <strong>Warrant Wall</strong> and is an illegal search. During actual arrests, <strong>Chimel v. California (1969)</strong> limits warrantless searches to the suspect's immediate reach, and <strong>Arizona v. Gant (2009)</strong> restricts searching cars after an arrest.<br><br>
+                    Now tap <strong>5th Amendment</strong>: What happens once police arrest you? In <strong>Schmerber v. California (1966)</strong>, the Court ruled mandatory DUI blood draws do NOT violate self-incrimination, because the 5th Amendment only protects spoken or written testimony, not physical blood samples—unlike <strong>Counselman v. Hitchcock (1892)</strong> which protected grand jury testimony, or <strong>US v. Hubbell (2000)</strong> which protected against forced document dumps."
+                </p>
+                <div class="step-transition">🔗 Transition: "Once the police have evidence, you head to court—so tap '6th' and '7th'!"</div>
+            </div>
+
+            <!-- STEP 6: 6TH, 7TH, & 8TH AMENDMENTS -->
+            <div class="step-card" onclick="this.classList.toggle('done')">
+                <div class="step-header">
+                    <span class="step-badge">Step 6: 6th, 7th, & 8th Amendments (Trials & Punishment)</span>
+                    <span class="step-time">3:40 – 4:35</span>
+                </div>
+                <div class="step-action">📱 Tell Group: "Click through '6th', '7th', and '8th' with me."</div>
+                <p class="step-speech">
+                    "Tap <strong>6th Amendment</strong>: At the NAACP, fighting rigged juries was everything. <strong>Batson v. Kentucky (1986)</strong> finally banned prosecutors from kicking potential jurors off a trial just because of their <strong>race</strong>. Before that, <strong>Taylor v. Louisiana (1975)</strong> banned excluding women from jury pools, and <strong>Pointer v. Texas (1965)</strong> guaranteed the right to confront witnesses face-to-face.<br><br>
+                    Tap <strong>7th Amendment</strong> for civil trials: <strong>Dimick v. Schiedt (1935)</strong> ruled federal judges cannot randomly increase money payouts decided by a civil jury. <strong>Redman (1935)</strong> balanced judge and jury roles, and <strong>Colgrove v. Battin (1973)</strong> ruled 6-person civil juries are constitutional.<br><br>
+                    Finally, tap <strong>8th Amendment</strong>: If someone is convicted, the punishment can't be cruel and unusual. <strong>Atkins v. Virginia (2002)</strong> banned executing people with severe intellectual disabilities, <strong>Miller v. Alabama (2012)</strong> banned mandatory life without parole for juveniles, and <strong>Estelle v. Gamble (1976)</strong> ruled ignoring prisoner medical needs is unconstitutional."
+                </p>
+                <div class="step-transition">🔗 Transition: "And to prove you guys weren't zoning out, tap the 'Interactive Audience Quiz' tab at the top!"</div>
+            </div>
+
+            <!-- STEP 7: LIVE QUIZ CLOSER -->
+            <div class="step-card" onclick="this.classList.toggle('done')">
+                <div class="step-header">
+                    <span class="step-badge">Step 7: Interactive Quiz Finale</span>
+                    <span class="step-time">4:35 – 5:00</span>
+                </div>
+                <div class="step-action">📱 Tell Group: "Pick your 4 answers on the Quiz tab and hit Submit!"</div>
+                <p class="step-speech">
+                    "Go ahead and tap your answers for the 4 questions on your screen and hit <strong>Submit Answers</strong>—let's see who gets 4 out of 4! That wraps up my 80-year legal tour, thank you!"
+                </p>
             </div>
         </div>
     </main>
