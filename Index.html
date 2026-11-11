@@ -23,12 +23,15 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         body { background-color: var(--bg-primary); color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; }
         
-        /* Header & Navigation */
-        header { background: var(--navy-dark); color: #ffffff; padding: 24px 20px; text-align: center; border-bottom: 4px solid var(--gold-main); }
+        /* Header & Discreet Button */
+        header { background: var(--navy-dark); color: #ffffff; padding: 24px 20px; text-align: center; border-bottom: 4px solid var(--gold-main); position: relative; }
         header h1 { font-size: 26px; color: var(--gold-light); margin-bottom: 6px; letter-spacing: 0.5px; }
         header p { font-size: 14px; color: #94a3b8; }
         
-        nav { display: flex; justify-content: center; background: var(--navy-main); border-bottom: 1px solid #2563eb; }
+        .secret-btn { position: absolute; top: 10px; right: 12px; background: transparent; border: none; color: #334155; font-size: 11px; cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: 0.2s; }
+        .secret-btn:hover { color: #64748b; background: rgba(255,255,255,0.03); }
+
+        nav { display: flex; justify-content: center; background: var(--navy-main); border-bottom: 1px solid #2563eb; flex-wrap: wrap; }
         .tab-btn { background: none; border: none; color: #dbeafe; padding: 14px 24px; font-size: 15px; font-weight: 600; cursor: pointer; transition: 0.2s; }
         .tab-btn:hover { color: #ffffff; background: rgba(255, 255, 255, 0.05); }
         .tab-btn.active { color: #ffffff; background: rgba(0, 0, 0, 0.15); border-bottom: 4px solid var(--gold-main); }
@@ -84,19 +87,29 @@
         
         .result-box { text-align: center; background: var(--gold-light); border: 2px solid var(--gold-main); padding: 20px; border-radius: 8px; margin-top: 20px; display: none; }
         .result-box h3 { color: var(--gold-main); font-size: 22px; margin-bottom: 8px; }
+
+        /* Cheat Sheet Specific Styles */
+        .timer-bar { display: flex; justify-content: space-between; align-items: center; background: var(--navy-dark); color: white; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 6px solid var(--gold-main); }
+        .timer-display { font-size: 22px; font-weight: 800; color: var(--gold-light); font-variant-numeric: tabular-nums; }
+        .timer-btn { background: var(--gold-main); color: white; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 13px; margin-left: 8px; }
+        .script-block { border-left: 4px solid var(--navy-main); background: #f8fafc; padding: 14px 18px; margin-bottom: 14px; border-radius: 0 6px 6px 0; }
+        .script-time { font-size: 12px; font-weight: 800; color: var(--gold-main); text-transform: uppercase; letter-spacing: 0.5px; }
+        .script-cue { font-size: 13px; font-weight: 700; color: var(--navy-main); margin: 4px 0; }
+        .script-say { font-size: 14px; color: #0f172a; font-style: italic; }
     </style>
 </head>
 <body>
 
     <header>
+        <button class="secret-btn" onclick="unlockCheatSheet()" title="System Version">v1.4</button>
         <h1>Bill of Rights Legal Tour</h1>
         <p>NAACP Legal Defense Fund Project — Supreme Court Landmark Case Overview</p>
     </header>
 
     <nav>
-        <button class="tab-btn active" onclick="switchTab('title')">🏠 Home / Overview</button>
-        <button class="tab-btn" onclick="switchTab('documents')">📄 Document Vault (Cases)</button>
-        <button class="tab-btn" onclick="switchTab('quiz')">🎯 Interactive Audience Quiz</button>
+        <button class="tab-btn active" id="btn-title" onclick="switchTab('title', this)">🏠 Home / Overview</button>
+        <button class="tab-btn" id="btn-documents" onclick="switchTab('documents', this)">📄 Document Vault (Cases)</button>
+        <button class="tab-btn" id="btn-quiz" onclick="switchTab('quiz', this)">🎯 Interactive Audience Quiz</button>
     </nav>
 
     <main>
@@ -115,7 +128,6 @@
                 <h2>Visual Exhibit 1: The 1st Amendment Clash in Barnette (1943)</h2>
                 <div class="visual-box">
                     <svg viewBox="0 0 750 250" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Left Box: State Compulsion -->
                         <rect x="20" y="30" width="240" height="170" rx="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
                         <text x="140" y="60" font-weight="bold" font-size="15" fill="#991b1b" text-anchor="middle">STATE COMPULSION</text>
                         <text x="140" y="82" font-size="12" fill="#7f1d1d" text-anchor="middle">(WV Board of Education)</text>
@@ -124,18 +136,15 @@
                         <text x="140" y="142" font-size="12" fill="#1e293b" text-anchor="middle">• Forced Wartime Unity</text>
                         <text x="140" y="164" font-size="12" fill="#b91c1c" font-weight="bold" text-anchor="middle">Penalty: Expulsion &amp; Fines</text>
 
-                        <!-- Center Shield: 1st Amendment Wall -->
                         <polygon points="375,20 435,50 435,130 375,210 315,130 315,50" fill="#1e3a8a" stroke="#b45309" stroke-width="4"/>
                         <text x="375" y="95" font-weight="bold" font-size="14" fill="#fef3c7" text-anchor="middle">1ST</text>
                         <text x="375" y="115" font-weight="bold" font-size="13" fill="#ffffff" text-anchor="middle">AMENDMENT</text>
                         <text x="375" y="135" font-size="11" fill="#93c5fd" text-anchor="middle">BLOCKS</text>
                         <text x="375" y="150" font-size="11" fill="#93c5fd" text-anchor="middle">FORCED SPEECH</text>
 
-                        <!-- Arrows -->
                         <line x1="265" y1="115" x2="305" y2="115" stroke="#b91c1c" stroke-width="3" stroke-dasharray="4"/>
                         <line x1="445" y1="115" x2="485" y2="115" stroke="#15803d" stroke-width="3"/>
 
-                        <!-- Right Box: Individual Conscience -->
                         <rect x="490" y="30" width="240" height="170" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
                         <text x="610" y="60" font-weight="bold" font-size="15" fill="#166534" text-anchor="middle">INDIVIDUAL CONSCIENCE</text>
                         <text x="610" y="82" font-size="12" fill="#14532d" text-anchor="middle">(Barnette Family - 6-3 Win)</text>
@@ -181,14 +190,14 @@
         <!-- DOCUMENT VAULT TAB -->
         <div id="documents" class="tab-content">
             <div class="amendment-nav">
-                <button class="amend-btn active" onclick="showAmend(1)">1st</button>
-                <button class="amend-btn" onclick="showAmend(2)">2nd</button>
-                <button class="amend-btn" onclick="showAmend(3)">3rd</button>
-                <button class="amend-btn" onclick="showAmend(4)">4th</button>
-                <button class="amend-btn" onclick="showAmend(5)">5th</button>
-                <button class="amend-btn" onclick="showAmend(6)">6th</button>
-                <button class="amend-btn" onclick="showAmend(7)">7th</button>
-                <button class="amend-btn" onclick="showAmend(8)">8th</button>
+                <button class="amend-btn active" onclick="showAmend(1, this)">1st</button>
+                <button class="amend-btn" onclick="showAmend(2, this)">2nd</button>
+                <button class="amend-btn" onclick="showAmend(3, this)">3rd</button>
+                <button class="amend-btn" onclick="showAmend(4, this)">4th</button>
+                <button class="amend-btn" onclick="showAmend(5, this)">5th</button>
+                <button class="amend-btn" onclick="showAmend(6, this)">6th</button>
+                <button class="amend-btn" onclick="showAmend(7, this)">7th</button>
+                <button class="amend-btn" onclick="showAmend(8, this)">8th</button>
             </div>
 
             <!-- 1st Amendment -->
@@ -207,7 +216,6 @@
                     <h3>Visual Exhibit 2: Three Boundaries of 1st Amendment Speech</h3>
                     <div class="visual-box">
                         <svg viewBox="0 0 750 180" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Box 1: Barnette -->
                             <rect x="15" y="20" width="225" height="140" rx="8" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
                             <text x="127" y="48" font-weight="bold" font-size="14" fill="#1e3a8a" text-anchor="middle">Barnette (1943)</text>
                             <text x="127" y="70" font-size="12" font-weight="bold" fill="#15803d" text-anchor="middle">✔ PROTECTED SILENCE</text>
@@ -215,7 +223,6 @@
                             <text x="127" y="112" font-size="11" fill="#334155" text-anchor="middle">to salute the flag or speak</text>
                             <text x="127" y="129" font-size="11" fill="#334155" text-anchor="middle">against their religion.</text>
 
-                            <!-- Box 2: Hazelwood -->
                             <rect x="262" y="20" width="225" height="140" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
                             <text x="375" y="48" font-weight="bold" font-size="14" fill="#b45309" text-anchor="middle">Hazelwood (1988)</text>
                             <text x="375" y="70" font-size="12" font-weight="bold" fill="#b45309" text-anchor="middle">⚠ SCHOOL LIMITS</text>
@@ -223,7 +230,6 @@
                             <text x="375" y="112" font-size="11" fill="#334155" text-anchor="middle">school-sponsored newspapers</text>
                             <text x="375" y="129" font-size="11" fill="#334155" text-anchor="middle">for educational goals.</text>
 
-                            <!-- Box 3: Brandenburg -->
                             <rect x="510" y="20" width="225" height="140" rx="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
                             <text x="622" y="48" font-weight="bold" font-size="14" fill="#991b1b" text-anchor="middle">Brandenburg (1969)</text>
                             <text x="622" y="70" font-size="12" font-weight="bold" fill="#b91c1c" text-anchor="middle">✖ THE HARD LIMIT</text>
@@ -273,25 +279,20 @@
                     <h3>Main Case: Kyllo v. United States (2001)</h3>
                     <p><strong>Holding:</strong> Police using thermal imaging to scan a private home from outside counts as an illegal search without a warrant.</p>
                     
-                    <!-- Custom SVG Visual Diagram 3: Kyllo Thermal Search -->
                     <div class="visual-box">
                         <svg viewBox="0 0 750 220" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Police Van on Public Street -->
                             <rect x="30" y="90" width="160" height="80" rx="10" fill="#1e293b"/>
                             <text x="110" y="125" font-weight="bold" font-size="13" fill="#ffffff" text-anchor="middle">POLICE VEHICLE</text>
                             <text x="110" y="145" font-size="11" fill="#94a3b8" text-anchor="middle">(Public Street)</text>
                             <text x="110" y="75" font-weight="bold" font-size="12" fill="#b91c1c" text-anchor="middle">Thermal Scanner</text>
 
-                            <!-- Thermal Waves hitting wall -->
                             <polygon points="190,115 390,55 390,185" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="2" stroke-dasharray="6"/>
                             <text x="290" y="125" font-weight="bold" font-size="12" fill="#b91c1c" text-anchor="middle">Infrared Heat Scan</text>
 
-                            <!-- 4th Amendment Wall Line -->
                             <line x1="395" y1="20" x2="395" y2="200" stroke="#b45309" stroke-width="6"/>
                             <rect x="340" y="15" width="110" height="28" rx="4" fill="#b45309"/>
                             <text x="395" y="34" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle">WARRANT WALL</text>
 
-                            <!-- Private Home -->
                             <polygon points="560,30 450,90 670,90" fill="#1e3a8a"/>
                             <rect x="465" y="90" width="190" height="100" fill="#eff6ff" stroke="#1e3a8a" stroke-width="3"/>
                             <text x="560" y="125" font-weight="bold" font-size="14" fill="#1e3a8a" text-anchor="middle">PRIVATE HOME</text>
@@ -391,6 +392,57 @@
                 </div>
             </div>
         </div>
+
+        <!-- SECRET PRESENTER CHEAT SHEET TAB -->
+        <div id="cheatsheet" class="tab-content">
+            <div class="timer-bar">
+                <div>
+                    <strong>⏱️ 5-Minute Pacing Timer</strong>
+                    <p style="font-size: 12px; color: #cbd5e1;">Target: 4:30 – 5:30 total</p>
+                </div>
+                <div>
+                    <span class="timer-display" id="timer-display">05:00</span>
+                    <button class="timer-btn" onclick="toggleTimer()" id="timer-btn">Start</button>
+                    <button class="timer-btn" style="background:#475569;" onclick="resetTimer()">Reset</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🤫 Presenter Live Script & Pacing Cues</h2>
+                
+                <div class="script-block">
+                    <div class="script-time">0:00 – 0:30 | Intro & Persona Hook</div>
+                    <div class="script-cue">👉 Tell group: Stay on the "Home / Overview" tab.</div>
+                    <div class="script-say">"I started with Thurgood Marshall at the NAACP Legal Defense Fund back in 1940 at age 18. Now that I'm 103 and retired, I've put together this digital archive for you to follow along on your own screens as we look at how the Bill of Rights shaped civil rights."</div>
+                </div>
+
+                <div class="script-block">
+                    <div class="script-time">0:30 – 2:00 | Focus Amendment: 1st Amendment (1.5 Mins)</div>
+                    <div class="script-cue">👉 Tell group: Look at Figure 1 & Table on Home tab, then click "Document Vault" -> "1st".</div>
+                    <div class="script-say">"Look at Figure 1 on the Home tab. In West Virginia v. Barnette (1943), the school board argued forcing students to salute the flag built wartime unity. The Barnette family argued forced salutes violated their religious beliefs and forced speech against their conscience. The Supreme Court used the 1st Amendment shield in the middle to block forced patriotism. In the table below that, you also see Boy Scouts v. Dale (2000), where the Boy Scouts argued private groups have a right of expressive association to set membership rules, while James Dale argued state anti-discrimination laws should protect him; the Court sided with the group's expressive association. If you click into the Document Vault under 1st Amendment, look at Figure 2: we also see Hazelwood v. Kuhlmeier (1988), allowing schools to censor school newspapers for educational reasons, and Brandenburg v. Ohio (1969), protecting extreme speech unless it directly incites imminent lawless action."</div>
+                </div>
+
+                <div class="script-block">
+                    <div class="script-time">2:00 – 4:30 | Amendments 2–8 Rapid Run (20-25 Secs Each)</div>
+                    <div class="script-cue">👉 Tell group: Click through tabs 2nd to 8th inside the Document Vault as I call them out.</div>
+                    <div class="script-say">
+                        • <strong>2nd:</strong> "Click 2nd. NYSRPA v. Bruen (2022) ruled the 2nd Amendment protects carrying a handgun outside the home for self-defense. Earlier cases like Cruikshank (1876) only limited federal power, and Presser (1886) let states ban private militias."<br><br>
+                        • <strong>3rd:</strong> "Click 3rd. Mitchell v. Harmony (1852) ruled military commanders cannot seize civilian property without immediate emergency necessity. Later, Laird v. Tatum (1972) limited military surveillance, and US v. Russell (1871) required owner compensation."<br><br>
+                        • <strong>4th:</strong> "Click 4th and look at Figure 3. In Kyllo v. US (2001), police used a thermal scanner from a public street to detect heat lamps inside a house. As Figure 3 shows, scanning through a private home's walls crosses the warrant wall. Also note Chimel (1969) limiting arrest searches to immediate reach, and Arizona v. Gant (2009) restricting vehicle searches."<br><br>
+                        • <strong>5th:</strong> "Click 5th. Schmerber v. California (1966) ruled mandatory DUI blood draws don't violate self-incrimination because the 5th Amendment protects spoken or written testimony, not physical samples—unlike Counselman (1892) on grand juries and Hubbell (2000) on forced documents."<br><br>
+                        • <strong>6th:</strong> "Click 6th. Batson v. Kentucky (1986) banned prosecutors from striking jurors based solely on race. Taylor v. Louisiana (1975) banned excluding women from jury pools, and Pointer v. Texas (1965) guaranteed the right to confront witnesses."<br><br>
+                        • <strong>7th:</strong> "Click 7th. Dimick v. Schiedt (1935) ruled federal judges cannot arbitrarily increase civil jury payout awards. Redman (1935) balanced judge and jury roles, and Colgrove (1973) upheld 6-person civil juries."<br><br>
+                        • <strong>8th:</strong> "Click 8th. Atkins v. Virginia (2002) banned executing individuals with severe intellectual disabilities as cruel and unusual. Miller v. Alabama (2012) banned mandatory life without parole for juveniles, and Estelle v. Gamble (1976) banned ignoring prisoner medical needs."
+                    </div>
+                </div>
+
+                <div class="script-block">
+                    <div class="script-time">4:30 – 5:00 | Wrap-Up & Live Quiz</div>
+                    <div class="script-cue">👉 Tell group: Tap "Interactive Audience Quiz" on your devices and try the 4 questions!</div>
+                    <div class="script-say">"To wrap up, click the Interactive Audience Quiz tab on your screen, pick your answers for the 4 cases we just covered, and hit submit!"</div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script>
@@ -473,20 +525,29 @@
         let userSelectedAnswers = {};
         let isSubmitted = false;
 
-        function switchTab(tabId) {
+        function switchTab(tabId, btnEl) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
             
             document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
+            if (btnEl) btnEl.classList.add('active');
         }
 
-        function showAmend(num) {
+        function unlockCheatSheet() {
+            const pass = prompt("Enter Presenter Passcode:");
+            if (pass === "1940") {
+                switchTab('cheatsheet', null);
+            } else if (pass !== null) {
+                alert("Invalid passcode.");
+            }
+        }
+
+        function showAmend(num, btnEl) {
             document.querySelectorAll('.amend-doc').forEach(el => el.style.display = 'none');
             document.querySelectorAll('.amend-btn').forEach(el => el.classList.remove('active'));
             
             document.getElementById('amend-' + num).style.display = 'block';
-            event.target.classList.add('active');
+            if (btnEl) btnEl.classList.add('active');
         }
 
         function generateNewQuiz() {
@@ -574,6 +635,45 @@
             document.getElementById('final-score').textContent = score;
             document.getElementById('result-box').style.display = 'block';
             document.getElementById('submit-btn').style.display = 'none';
+        }
+
+        // 5-Minute Countdown Timer Logic
+        let timeLeft = 300;
+        let timerInterval = null;
+
+        function updateTimerUI() {
+            const mins = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+            const secs = String(timeLeft % 60).padStart(2, '0');
+            document.getElementById('timer-display').textContent = `${mins}:${secs}`;
+        }
+
+        function toggleTimer() {
+            const btn = document.getElementById('timer-btn');
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                btn.textContent = "Resume";
+            } else {
+                btn.textContent = "Pause";
+                timerInterval = setInterval(() => {
+                    if (timeLeft > 0) {
+                        timeLeft--;
+                        updateTimerUI();
+                    } else {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        btn.textContent = "Done";
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timeLeft = 300;
+            updateTimerUI();
+            document.getElementById('timer-btn').textContent = "Start";
         }
 
         generateNewQuiz();
