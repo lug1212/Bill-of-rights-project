@@ -46,10 +46,11 @@
         p, li { font-size: 14px; color: var(--text-dark); line-height: 1.6; }
         ul { margin-left: 20px; }
         
-        /* Visual Box Styling for Rubric Integration */
-        .visual-box { background: var(--navy-light); border: 2px dashed var(--navy-main); border-radius: 6px; padding: 16px; margin: 15px 0; text-align: center; }
-        .visual-box img { max-width: 100%; height: auto; border-radius: 4px; margin-top: 10px; border: 1px solid var(--border-color); }
-        .visual-caption { font-size: 13px; font-weight: bold; color: var(--navy-main); margin-top: 6px; }
+        /* Custom SVG Visual Box */
+        .visual-box { background: #f8fafc; border: 2px solid var(--navy-main); border-radius: 8px; padding: 16px; margin: 16px 0; text-align: center; }
+        .visual-box svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .visual-caption { font-size: 13px; font-weight: 700; color: var(--navy-main); margin-top: 10px; }
+        .speak-tip { background: var(--gold-light); border-left: 4px solid var(--gold-main); padding: 8px 12px; font-size: 12px; color: #78350f; text-align: left; margin-top: 10px; border-radius: 0 4px 4px 0; }
 
         /* Sub-navigation for Amendments */
         .amendment-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
@@ -110,15 +111,45 @@
                 <p>This interactive portal organizes historical constitutional precedents, with a focus on First Amendment freedom of expression alongside major decisions across the Bill of Rights.</p>
             </div>
 
-            <!-- Embedded Visual Diagram for Rubric -->
+            <!-- Custom SVG Visual Diagram 1: Barnette Balance -->
             <div class="card">
-                <h2>Visual Reference: First Amendment Free Speech Framework</h2>
+                <h2>Visual Exhibit 1: The 1st Amendment Clash in Barnette (1943)</h2>
                 <div class="visual-box">
-                    <p><strong>[Constitutional Balance Diagram]</strong></p>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/First_Amendment_Protected_Speech_Spectrum.png/800px-First_Amendment_Protected_Speech_Spectrum.png" alt="First Amendment Framework" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80';">
-                    <p class="visual-caption">Figure 1.1: Balancing State Compulsion vs. Individual Liberties (*Barnette* & *Dale*)</p>
+                    <svg viewBox="0 0 750 250" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Left Box: State Compulsion -->
+                        <rect x="20" y="30" width="240" height="170" rx="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+                        <text x="140" y="60" font-weight="bold" font-size="15" fill="#991b1b" text-anchor="middle">STATE COMPULSION</text>
+                        <text x="140" y="82" font-size="12" fill="#7f1d1d" text-anchor="middle">(WV Board of Education)</text>
+                        <line x1="40" y1="95" x2="240" y2="95" stroke="#f87171" stroke-width="1"/>
+                        <text x="140" y="120" font-size="12" fill="#1e293b" text-anchor="middle">• Mandatory Flag Salute</text>
+                        <text x="140" y="142" font-size="12" fill="#1e293b" text-anchor="middle">• Forced Wartime Unity</text>
+                        <text x="140" y="164" font-size="12" fill="#b91c1c" font-weight="bold" text-anchor="middle">Penalty: Expulsion &amp; Fines</text>
+
+                        <!-- Center Shield: 1st Amendment Wall -->
+                        <polygon points="375,20 435,50 435,130 375,210 315,130 315,50" fill="#1e3a8a" stroke="#b45309" stroke-width="4"/>
+                        <text x="375" y="95" font-weight="bold" font-size="14" fill="#fef3c7" text-anchor="middle">1ST</text>
+                        <text x="375" y="115" font-weight="bold" font-size="13" fill="#ffffff" text-anchor="middle">AMENDMENT</text>
+                        <text x="375" y="135" font-size="11" fill="#93c5fd" text-anchor="middle">BLOCKS</text>
+                        <text x="375" y="150" font-size="11" fill="#93c5fd" text-anchor="middle">FORCED SPEECH</text>
+
+                        <!-- Arrows -->
+                        <line x1="265" y1="115" x2="305" y2="115" stroke="#b91c1c" stroke-width="3" stroke-dasharray="4"/>
+                        <line x1="445" y1="115" x2="485" y2="115" stroke="#15803d" stroke-width="3"/>
+
+                        <!-- Right Box: Individual Conscience -->
+                        <rect x="490" y="30" width="240" height="170" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+                        <text x="610" y="60" font-weight="bold" font-size="15" fill="#166534" text-anchor="middle">INDIVIDUAL CONSCIENCE</text>
+                        <text x="610" y="82" font-size="12" fill="#14532d" text-anchor="middle">(Barnette Family - 6-3 Win)</text>
+                        <line x1="510" y1="95" x2="710" y2="95" stroke="#4ade80" stroke-width="1"/>
+                        <text x="610" y="120" font-size="12" fill="#1e293b" text-anchor="middle">• Right Not to Speak</text>
+                        <text x="610" y="142" font-size="12" fill="#1e293b" text-anchor="middle">• Religious Freedom</text>
+                        <text x="610" y="164" font-size="12" fill="#15803d" font-weight="bold" text-anchor="middle">Ruling: No Forced Patriotism</text>
+                    </svg>
+                    <p class="visual-caption">Figure 1: How the 1st Amendment Shielded Students from Compulsory Government Speech in Barnette (1943)</p>
+                    <div class="speak-tip">
+                        <strong>🗣️ How to reference this visual:</strong> Point to the blue shield in the middle and tell your group: <em>"As you can see in Figure 1, the school board tried to force students on the left to salute the flag, but the Supreme Court used the 1st Amendment shield in the middle to block forced speech and protect individual conscience on the right."</em>
+                    </div>
                 </div>
-                <p><em></em></p>
             </div>
 
             <!-- Focus Cases Breakdown Table -->
@@ -169,339 +200,4 @@
                 <div class="card">
                     <h2>1st Amendment — Freedom of Speech & Religion</h2>
                     <h3>Main Focus Case: West Virginia Board of Education v. Barnette (1943)</h3>
-                    <p><strong>Holding:</strong> Public schools cannot compel students to salute the flag or recite the Pledge of Allegiance. Forced patriotism violates First Amendment free speech and free exercise rights.</p>
-                    <br>
-                    <p><strong>Petitioner (School Board):</strong> Argued compulsory flag salutes build national unity and patriotism during wartime.</p>
-                    <p><strong>Respondent (Barnette):</strong> Argued forced salutes violate religious beliefs against idolatry and compel speech contrary to conscience.</p>
-                </div>
-                <div class="card">
-                    <h3>Additional 1st Amendment Cases</h3>
-                    <ul>
-                        <li><strong>Hazelwood School District v. Kuhlmeier (1988):</strong> School administrators have the right to censor articles in school-sponsored student newspapers for legitimate educational concerns.</li>
-                        <li><strong>Brandenburg v. Ohio (1969):</strong> Free speech protects inflammatory political rhetoric unless it directly incites immediate lawless action.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 2nd Amendment -->
-            <div id="amend-2" class="amend-doc" style="display:none;">
-                <div class="card">
-                    <h2>2nd Amendment — Right to Bear Arms</h2>
-                    <h3>Main Case: NYSRPA v. Bruen (2022)</h3>
-                    <p><strong>Holding:</strong> Protects an individual's right to carry a firearm outside the home for self-defense.</p>
-                    <br>
-                    <h3>Mentions:</h3>
-                    <ul>
-                        <li><strong>US v. Cruikshank (1876):</strong> Early precedent holding the 2nd Amendment restricted only federal actions.</li>
-                        <li><strong>Presser v. Illinois (1886):</strong> States can prohibit private armed militias from parading in public.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 3rd Amendment -->
-            <div id="amend-3" class="amend-doc" style="display:none;">
-                <div class="card">
-                    <h2>3rd Amendment — Quartering Soldiers</h2>
-                    <h3>Main Case: Mitchell v. Harmony (1852)</h3>
-                    <p><strong>Holding:</strong> Military commanders cannot seize or occupy civilian property without immediate emergency necessity.</p>
-                    <br>
-                    <h3>Mentions:</h3>
-                    <ul>
-                        <li><strong>Laird v. Tatum (1972):</strong> Used 3rd Amendment principles to limit military surveillance of civilians.</li>
-                        <li><strong>US v. Russell (1871):</strong> Government must compensate owners if private property is taken for military use.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 4th Amendment -->
-            <div id="amend-4" class="amend-doc" style="display:none;">
-                <div class="card">
-                    <h2>4th Amendment — Search & Seizure</h2>
-                    <h3>Main Case: Kyllo v. United States (2001)</h3>
-                    <p><strong>Holding:</strong> Police using thermal imaging to scan a private home from outside counts as an illegal search without a warrant.</p>
-                    
-                    <div class="visual-box">
-                        <p><strong>[Visual Exhibit: Kyllo Thermal Scan Concept]</strong></p>
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Thermal Imaging Concept">
-                        <p class="visual-caption">Exhibit 4.1: Non-Invasive Technological Scans of Homes Require Warrants</p>
-                    </div>
-
-                    <h3>Mentions:</h3>
-                    <ul>
-                        <li><strong>Chimel v. California (1969):</strong> Warrantless search during arrest is strictly limited to suspect's immediate reach.</li>
-                        <li><strong>Arizona v. Gant (2009):</strong> Restricted police vehicle searches post-arrest to immediate safety threats or evidence.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 5th Amendment -->
-            <div id="amend-5" class="amend-doc" style="display:none;">
-                <div class="card">
-                    <h2>5th Amendment — Self-Incrimination & Due Process</h2>
-                    <h3>Main Case: Schmerber v. California (1966)</h3>
-                    <p><strong>Holding:</strong> Mandatory blood samples for DUI tests do not violate the 5th Amendment because protection covers testimonial evidence, not physical samples.</p>
-                    <br>
-                    <h3>Mentions:</h3>
-                    <ul>
-                        <li><strong>Counselman v. Hitchcock (1892):</strong> Protected self-incrimination rights during grand jury proceedings.</li>
-                        <li><strong>US v. Hubbell (2000):</strong> Forcing massive document production can violate self-incrimination rights.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 6th Amendment -->
-            <div id="amend-6" class="amend-doc" style="display:none;">
-                <div class="card">
-                    <h2>6th Amendment — Right to Fair Trial</h2>
-                    <h3>Main Case: Batson v. Kentucky (1986)</h3>
-                    <p><strong>Holding:</strong> Prosecutors cannot exclude potential jurors from a trial panel solely because of their race.</p>
-                    <br>
-                    <h3>Mentions:</h3>
-                    <ul>
-                        <li><strong>Taylor v. Louisiana (1975):</strong> Banned excluding women from jury pools to ensure a fair cross-section.</li>
-                        <li><strong>Pointer v. Texas (1965):</strong> Guaranteed defendants the right to confront witness testimony directly.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 7th Amendment -->
-            <div id="amend-7" class="amend-doc" style="display:none;">
-                <div class="card">
-                    <h2>7th Amendment — Civil Jury Trials</h2>
-                    <h3>Main Case: Dimick v. Schiedt (1935)</h3>
-                    <p><strong>Holding:</strong> Federal judges cannot arbitrarily increase payout amounts awarded by civil juries.</p>
-                    <br>
-                    <h3>Mentions:</h3>
-                    <ul>
-                        <li><strong>Baltimore & Carolina Line v. Redman (1935):</strong> Balanced judicial rulings with civil jury responsibilities.</li>
-                        <li><strong>Colgrove v. Battin (1973):</strong> Established that 6-person juries satisfy 7th Amendment civil trial rights.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 8th Amendment -->
-            <div id="amend-8" class="amend-doc" style="display:none;">
-                <div class="card">
-                    <h2>8th Amendment — Cruel & Unusual Punishment</h2>
-                    <h3>Main Case: Atkins v. Virginia (2002)</h3>
-                    <p><strong>Holding:</strong> Executing individuals with severe intellectual disabilities is illegal and counts as cruel and unusual punishment.</p>
-                    <br>
-                    <h3>Mentions:</h3>
-                    <ul>
-                        <li><strong>Miller v. Alabama (2012):</strong> Banned mandatory life sentences without parole for juvenile offenders.</li>
-                        <li><strong>Estelle v. Gamble (1976):</strong> Ignoring prisoner medical needs constitutes cruel and unusual punishment.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- DYNAMIC QUIZ TAB -->
-        <div id="quiz" class="tab-content">
-            <div class="card">
-                <h2>🎯 Interactive Audience Quiz</h2>
-                <p style="margin-bottom: 15px;">Answer all questions and hit submit to check your results!</p>
-                
-                <div class="quiz-controls">
-                    <span>Progress: <span id="progress-text">0 / 4 Selected</span></span>
-                    <button class="gen-btn" onclick="generateNewQuiz()">🔄 Generate New Questions</button>
-                </div>
-
-                <div id="quiz-container"></div>
-
-                <button class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Answers ➔</button>
-
-                <div class="result-box" id="result-box">
-                    <h3>🏆 QUIZ COMPLETE!</h3>
-                    <p>Your Final Score: <strong id="final-score">0</strong> / 4</p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        const questionDatabase = [
-            {
-                q: "Which case ruled that public school students cannot be forced to salute the flag?",
-                options: ["Hazelwood v. Kuhlmeier", "West Virginia v. Barnette", "Brandenburg v. Ohio"],
-                correct: 1,
-                exp: "Barnette (1943) established that forced patriotism violates First Amendment rights to free speech and exercise."
-            },
-            {
-                q: "What surveillance method was ruled an unconstitutional search without a warrant in Kyllo v. United States?",
-                options: ["Thermal heat imaging", "License plate camera tracking", "Phone wiretapping"],
-                correct: 0,
-                exp: "Kyllo (2001) ruled that thermal imaging of a home from a public street constitutes a search."
-            },
-            {
-                q: "Batson v. Kentucky prohibited prosecutors from excluding potential jurors based on what factor?",
-                options: ["Age", "Race", "Gender"],
-                correct: 1,
-                exp: "Batson (1986) banned peremptory challenges based solely on race to protect 6th Amendment fair trial rights."
-            },
-            {
-                q: "Which amendment limits military commanders from seizing civilian property without an emergency?",
-                options: ["2nd Amendment", "3rd Amendment", "7th Amendment"],
-                correct: 1,
-                exp: "Mitchell v. Harmony (1852) applied 3rd Amendment principles to stop military property seizures without necessity."
-            },
-            {
-                q: "Which 1st Amendment case established that school officials may censor student newspapers?",
-                options: ["Hazelwood v. Kuhlmeier", "Tinker v. Des Moines", "Brandenburg v. Ohio"],
-                correct: 0,
-                exp: "Hazelwood (1988) allowed school censorship of school-sponsored publications for educational reasons."
-            },
-            {
-                q: "NYSRPA v. Bruen (2022) protected the 2nd Amendment right to carry firearms in which location?",
-                options: ["In federal buildings only", "Outside the home for self-defense", "Only on private farmland"],
-                correct: 1,
-                exp: "Bruen expanded 2nd Amendment self-defense rights outside the home."
-            },
-            {
-                q: "Why did mandatory DUI blood tests NOT violate the 5th Amendment in Schmerber v. California?",
-                options: ["Because blood is physical evidence, not testimonial speech", "Because blood tests are voluntary", "Because DUI cases are exempt"],
-                correct: 0,
-                exp: "The 5th Amendment privilege against self-incrimination only protects written or spoken testimony."
-            },
-            {
-                q: "Which case banned executing individuals with severe intellectual disabilities under the 8th Amendment?",
-                options: ["Miller v. Alabama", "Estelle v. Gamble", "Atkins v. Virginia"],
-                correct: 2,
-                exp: "Atkins (2002) ruled that executing intellectually disabled individuals counts as cruel and unusual punishment."
-            },
-            {
-                q: "Dimick v. Schiedt (1935) protected 7th Amendment civil jury rights by stopping judges from doing what?",
-                options: ["Selecting jurors", "Arbitrarily increasing jury damage awards", "Canceling trials"],
-                correct: 1,
-                exp: "Dimick ruled that federal judges cannot manually add to jury financial damage awards."
-            },
-            {
-                q: "Brandenburg v. Ohio protected inflammatory speech UNLESS it incites what?",
-                options: ["Offensive opinions", "Imminent lawless action", "Disagreements"],
-                correct: 1,
-                exp: "Brandenburg created the test protecting speech unless it directly incites immediate illegal action."
-            },
-            {
-                q: "Taylor v. Louisiana (1975) ruled under the 6th Amendment that jury pools cannot systematically exclude who?",
-                options: ["Women", "Minors", "Out-of-state residents"],
-                correct: 0,
-                exp: "Taylor ruled that excluding women breaks the requirement that a jury represent a fair cross-section of the community."
-            },
-            {
-                q: "Miller v. Alabama (2012) banned which type of sentence for juvenile offenders?",
-                options: ["Fines over $1,000", "Mandatory life without parole", "Community service"],
-                correct: 1,
-                exp: "Miller ruled mandatory life without parole for juveniles violates 8th Amendment cruel and unusual punishment rules."
-            }
-        ];
-
-        let currentActiveQuestions = [];
-        let userSelectedAnswers = {};
-        let isSubmitted = false;
-
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
-        }
-
-        function showAmend(num) {
-            document.querySelectorAll('.amend-doc').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.amend-btn').forEach(el => el.classList.remove('active'));
-            
-            document.getElementById('amend-' + num).style.display = 'block';
-            event.target.classList.add('active');
-        }
-
-        function generateNewQuiz() {
-            isSubmitted = false;
-            userSelectedAnswers = {};
-            document.getElementById('result-box').style.display = 'none';
-            document.getElementById('submit-btn').style.display = 'block';
-            
-            const shuffled = [...questionDatabase].sort(() => 0.5 - Math.random());
-            currentActiveQuestions = shuffled.slice(0, 4);
-            
-            renderQuiz();
-        }
-
-        function renderQuiz() {
-            const container = document.getElementById('quiz-container');
-            container.innerHTML = '';
-            
-            currentActiveQuestions.forEach((qObj, qIdx) => {
-                const card = document.createElement('div');
-                card.className = 'quiz-card';
-                
-                let optionsHTML = '';
-                qObj.options.forEach((optText, oIdx) => {
-                    const isSelected = userSelectedAnswers[qIdx] === oIdx ? 'selected' : '';
-                    optionsHTML += `
-                        <button class="quiz-option ${isSelected}" onclick="selectOption(${qIdx}, ${oIdx})">
-                            ${String.fromCharCode(65 + oIdx)}. ${optText}
-                        </button>
-                    `;
-                });
-
-                card.innerHTML = `
-                    <p class="q-text">${qIdx + 1}. ${qObj.q}</p>
-                    ${optionsHTML}
-                    <div class="explanation" id="exp-${qIdx}"><strong>Explanation:</strong> ${qObj.exp}</div>
-                `;
-                container.appendChild(card);
-            });
-
-            updateProgress();
-        }
-
-        function selectOption(qIdx, oIdx) {
-            if (isSubmitted) return;
-            userSelectedAnswers[qIdx] = oIdx;
-            renderQuiz();
-        }
-
-        function updateProgress() {
-            const count = Object.keys(userSelectedAnswers).length;
-            document.getElementById('progress-text').textContent = `${count} / 4 Selected`;
-        }
-
-        function submitQuiz() {
-            if (Object.keys(userSelectedAnswers).length < 4) {
-                alert("Please select an answer for all 4 questions before submitting!");
-                return;
-            }
-
-            isSubmitted = true;
-            let score = 0;
-
-            currentActiveQuestions.forEach((qObj, qIdx) => {
-                const card = document.querySelectorAll('.quiz-card')[qIdx];
-                const buttons = card.querySelectorAll('.quiz-option');
-                const expDiv = card.querySelector('.explanation');
-                
-                expDiv.style.display = 'block';
-                
-                buttons.forEach((btn, oIdx) => {
-                    btn.disabled = true;
-                    if (oIdx === qObj.correct) {
-                        btn.classList.add('correct-btn');
-                    } else if (userSelectedAnswers[qIdx] === oIdx) {
-                        btn.classList.add('incorrect-btn');
-                    }
-                });
-
-                if (userSelectedAnswers[qIdx] === qObj.correct) {
-                    score++;
-                }
-            });
-
-            document.getElementById('final-score').textContent = score;
-            document.getElementById('result-box').style.display = 'block';
-            document.getElementById('submit-btn').style.display = 'none';
-        }
-
-        generateNewQuiz();
-    </script>
-</body>
-</html>
+                    <p>
