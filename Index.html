@@ -46,6 +46,11 @@
         p, li { font-size: 14px; color: var(--text-dark); line-height: 1.6; }
         ul { margin-left: 20px; }
         
+        /* Visual Box Styling for Rubric Integration */
+        .visual-box { background: var(--navy-light); border: 2px dashed var(--navy-main); border-radius: 6px; padding: 16px; margin: 15px 0; text-align: center; }
+        .visual-box img { max-width: 100%; height: auto; border-radius: 4px; margin-top: 10px; border: 1px solid var(--border-color); }
+        .visual-caption { font-size: 13px; font-weight: bold; color: var(--navy-main); margin-top: 6px; }
+
         /* Sub-navigation for Amendments */
         .amendment-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
         .amend-btn { background: var(--navy-light); color: var(--navy-main); border: 1px solid var(--border-color); padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 700; }
@@ -103,6 +108,17 @@
                 <p><strong>Scope:</strong> Supreme Court Jurisprudence on Amendments 1 through 8</p>
                 <br>
                 <p>This interactive portal organizes historical constitutional precedents, with a focus on First Amendment freedom of expression alongside major decisions across the Bill of Rights.</p>
+            </div>
+
+            <!-- Embedded Visual Diagram for Rubric -->
+            <div class="card">
+                <h2>Visual Reference: First Amendment Free Speech Framework</h2>
+                <div class="visual-box">
+                    <p><strong>[Constitutional Balance Diagram]</strong></p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/First_Amendment_Protected_Speech_Spectrum.png/800px-First_Amendment_Protected_Speech_Spectrum.png" alt="First Amendment Framework" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80';">
+                    <p class="visual-caption">Figure 1.1: Balancing State Compulsion vs. Individual Liberties (*Barnette* & *Dale*)</p>
+                </div>
+                <p><em>You can point to this diagram during your introduction to visually ground your discussion on how the Court weighs government objectives against personal constitutional rights.</em></p>
             </div>
 
             <!-- Focus Cases Breakdown Table -->
@@ -203,7 +219,13 @@
                     <h2>4th Amendment — Search & Seizure</h2>
                     <h3>Main Case: Kyllo v. United States (2001)</h3>
                     <p><strong>Holding:</strong> Police using thermal imaging to scan a private home from outside counts as an illegal search without a warrant.</p>
-                    <br>
+                    
+                    <div class="visual-box">
+                        <p><strong>[Visual Exhibit: Kyllo Thermal Scan Concept]</strong></p>
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Thermal Imaging Concept">
+                        <p class="visual-caption">Exhibit 4.1: Non-Invasive Technological Scans of Homes Require Warrants</p>
+                    </div>
+
                     <h3>Mentions:</h3>
                     <ul>
                         <li><strong>Chimel v. California (1969):</strong> Warrantless search during arrest is strictly limited to suspect's immediate reach.</li>
